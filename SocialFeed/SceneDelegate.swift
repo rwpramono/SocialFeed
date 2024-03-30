@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.overrideUserInterfaceStyle = .light
         
-        let navigationController = UINavigationController(rootViewController: PostListVC())
+        let vm = PostsListVM()
+        let navigationController = UINavigationController(rootViewController: PostsListVC(viewModel: vm))
         navigationController.navigationBar.prefersLargeTitles = true
 
         self.window?.rootViewController = navigationController

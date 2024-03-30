@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-public class NetworkService: HttpNetwork {
+public class URLSessionService: HttpNetwork {
     let session: URLSession
     let decoder: JSONDecoder
     
