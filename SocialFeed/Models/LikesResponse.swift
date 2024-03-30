@@ -1,5 +1,5 @@
 //
-//  Likes.swift
+//  LikesResponse.swift
 //  SocialFeed
 //
 //  Created by Rachmat Wahyu Pramono on 30/03/24.

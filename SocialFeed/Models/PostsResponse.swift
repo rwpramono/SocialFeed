@@ -1,5 +1,5 @@
 //
-//  Posts.swift
+//  PostsResponse.swift
 //  SocialFeed
 //
 //  Created by Rachmat Wahyu Pramono on 30/03/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Posts: Codable {
+public struct PostsResponse: Codable {
     public let posts: [Post]
 
     public init(posts: [Post]) {

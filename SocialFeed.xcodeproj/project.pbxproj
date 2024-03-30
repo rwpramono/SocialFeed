@@ -9,16 +9,15 @@
 /* Begin PBXBuildFile section */
 		9AB1DEEB2BB69A4A00F82D2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DEEA2BB69A4A00F82D2C /* AppDelegate.swift */; };
 		9AB1DEED2BB69A4A00F82D2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DEEC2BB69A4A00F82D2C /* SceneDelegate.swift */; };
-		9AB1DEEF2BB69A4A00F82D2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DEEE2BB69A4A00F82D2C /* ViewController.swift */; };
-		9AB1DEF52BB69A4A00F82D2C /* SocialFeed.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DEF32BB69A4A00F82D2C /* SocialFeed.xcdatamodeld */; };
+		9AB1DEF52BB69A4A00F82D2C /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DEF32BB69A4A00F82D2C /* CoreDataModel.xcdatamodeld */; };
 		9AB1DEF72BB69A5800F82D2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1DEF62BB69A5800F82D2C /* Assets.xcassets */; };
 		9AB1DEFA2BB69A5800F82D2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1DEF82BB69A5800F82D2C /* LaunchScreen.storyboard */; };
 		9AB1DF052BB69A5800F82D2C /* SocialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF042BB69A5800F82D2C /* SocialFeedTests.swift */; };
 		9AB1DF0F2BB69A5800F82D2C /* SocialFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF0E2BB69A5800F82D2C /* SocialFeedUITests.swift */; };
 		9AB1DF112BB69A5800F82D2C /* SocialFeedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF102BB69A5800F82D2C /* SocialFeedUITestsLaunchTests.swift */; };
-		9AB1DF1F2BB765DD00F82D2C /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF1E2BB765DD00F82D2C /* Posts.swift */; };
-		9AB1DF212BB7776D00F82D2C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF202BB7776D00F82D2C /* Comment.swift */; };
-		9AB1DF232BB7794F00F82D2C /* Likes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF222BB7794F00F82D2C /* Likes.swift */; };
+		9AB1DF1F2BB765DD00F82D2C /* PostsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF1E2BB765DD00F82D2C /* PostsResponse.swift */; };
+		9AB1DF212BB7776D00F82D2C /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF202BB7776D00F82D2C /* CommentResponse.swift */; };
+		9AB1DF232BB7794F00F82D2C /* LikesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF222BB7794F00F82D2C /* LikesResponse.swift */; };
 		9AB1DF272BB78F9900F82D2C /* PostsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF262BB78F9900F82D2C /* PostsListVC.swift */; };
 		9AB1DF2A2BB7905D00F82D2C /* PostsListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF292BB7905D00F82D2C /* PostsListVM.swift */; };
 		9AB1DF2C2BB7BE8500F82D2C /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF2B2BB7BE8500F82D2C /* CoreDataService.swift */; };
@@ -29,6 +28,7 @@
 		9AB1DF3B2BB7CCCC00F82D2C /* URLSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF3A2BB7CCCC00F82D2C /* URLSessionService.swift */; };
 		9AB1DF3D2BB7CD2400F82D2C /* HttpNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF3C2BB7CD2400F82D2C /* HttpNetworkError.swift */; };
 		9AB1DF402BB7CDC500F82D2C /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF3F2BB7CDC500F82D2C /* URLProtocolMock.swift */; };
+		9AB1DF432BB7CE6200F82D2C /* NetworkServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF422BB7CE6200F82D2C /* NetworkServiceSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,6 @@
 		9AB1DEE72BB69A4A00F82D2C /* SocialFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB1DEEA2BB69A4A00F82D2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AB1DEEC2BB69A4A00F82D2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9AB1DEEE2BB69A4A00F82D2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9AB1DEF42BB69A4A00F82D2C /* SocialFeed.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocialFeed.xcdatamodel; sourceTree = "<group>"; };
 		9AB1DEF62BB69A5800F82D2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AB1DEF92BB69A5800F82D2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,9 +61,9 @@
 		9AB1DF0A2BB69A5800F82D2C /* SocialFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB1DF0E2BB69A5800F82D2C /* SocialFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFeedUITests.swift; sourceTree = "<group>"; };
 		9AB1DF102BB69A5800F82D2C /* SocialFeedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialFeedUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9AB1DF1E2BB765DD00F82D2C /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
-		9AB1DF202BB7776D00F82D2C /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		9AB1DF222BB7794F00F82D2C /* Likes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Likes.swift; sourceTree = "<group>"; };
+		9AB1DF1E2BB765DD00F82D2C /* PostsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsResponse.swift; sourceTree = "<group>"; };
+		9AB1DF202BB7776D00F82D2C /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
+		9AB1DF222BB7794F00F82D2C /* LikesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesResponse.swift; sourceTree = "<group>"; };
 		9AB1DF262BB78F9900F82D2C /* PostsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListVC.swift; sourceTree = "<group>"; };
 		9AB1DF292BB7905D00F82D2C /* PostsListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListVM.swift; sourceTree = "<group>"; };
 		9AB1DF2B2BB7BE8500F82D2C /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		9AB1DF3A2BB7CCCC00F82D2C /* URLSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionService.swift; sourceTree = "<group>"; };
 		9AB1DF3C2BB7CD2400F82D2C /* HttpNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpNetworkError.swift; sourceTree = "<group>"; };
 		9AB1DF3F2BB7CDC500F82D2C /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		9AB1DF422BB7CE6200F82D2C /* NetworkServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,6 @@
 			children = (
 				9AB1DEEA2BB69A4A00F82D2C /* AppDelegate.swift */,
 				9AB1DEEC2BB69A4A00F82D2C /* SceneDelegate.swift */,
-				9AB1DEEE2BB69A4A00F82D2C /* ViewController.swift */,
 				9AB1DF312BB7C67500F82D2C /* Enums */,
 				9AB1DF242BB78F3300F82D2C /* Features */,
 				9AB1DF1D2BB765D000F82D2C /* Models */,
@@ -140,6 +139,7 @@
 		9AB1DF032BB69A5800F82D2C /* SocialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
+				9AB1DF412BB7CE5200F82D2C /* Spies */,
 				9AB1DF3E2BB7CDB800F82D2C /* Mock */,
 				9AB1DF042BB69A5800F82D2C /* SocialFeedTests.swift */,
 			);
@@ -158,9 +158,9 @@
 		9AB1DF1D2BB765D000F82D2C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9AB1DF202BB7776D00F82D2C /* Comment.swift */,
-				9AB1DF222BB7794F00F82D2C /* Likes.swift */,
-				9AB1DF1E2BB765DD00F82D2C /* Posts.swift */,
+				9AB1DF202BB7776D00F82D2C /* CommentResponse.swift */,
+				9AB1DF222BB7794F00F82D2C /* LikesResponse.swift */,
+				9AB1DF1E2BB765DD00F82D2C /* PostsResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,7 +208,6 @@
 				9AB1DEF62BB69A5800F82D2C /* Assets.xcassets */,
 				9AB1DEFB2BB69A5800F82D2C /* Info.plist */,
 				9AB1DEF82BB69A5800F82D2C /* LaunchScreen.storyboard */,
-				9AB1DEF32BB69A4A00F82D2C /* SocialFeed.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -225,6 +224,7 @@
 			children = (
 				9AB1DF332BB7C6CE00F82D2C /* CoreDataError.swift */,
 				9AB1DF2B2BB7BE8500F82D2C /* CoreDataService.swift */,
+				9AB1DEF32BB69A4A00F82D2C /* CoreDataModel.xcdatamodeld */,
 			);
 			path = CoreDataService;
 			sourceTree = "<group>";
@@ -244,6 +244,14 @@
 				9AB1DF3F2BB7CDC500F82D2C /* URLProtocolMock.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		9AB1DF412BB7CE5200F82D2C /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1DF422BB7CE6200F82D2C /* NetworkServiceSpy.swift */,
+			);
+			path = Spies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,19 +385,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AB1DF362BB7CC5400F82D2C /* HttpNetwork.swift in Sources */,
-				9AB1DEEF2BB69A4A00F82D2C /* ViewController.swift in Sources */,
-				9AB1DF212BB7776D00F82D2C /* Comment.swift in Sources */,
+				9AB1DF212BB7776D00F82D2C /* CommentResponse.swift in Sources */,
 				9AB1DEEB2BB69A4A00F82D2C /* AppDelegate.swift in Sources */,
 				9AB1DF2F2BB7BED100F82D2C /* DataPersistence.swift in Sources */,
 				9AB1DF3D2BB7CD2400F82D2C /* HttpNetworkError.swift in Sources */,
-				9AB1DF1F2BB765DD00F82D2C /* Posts.swift in Sources */,
-				9AB1DEF52BB69A4A00F82D2C /* SocialFeed.xcdatamodeld in Sources */,
+				9AB1DF1F2BB765DD00F82D2C /* PostsResponse.swift in Sources */,
+				9AB1DEF52BB69A4A00F82D2C /* CoreDataModel.xcdatamodeld in Sources */,
 				9AB1DF2C2BB7BE8500F82D2C /* CoreDataService.swift in Sources */,
 				9AB1DEED2BB69A4A00F82D2C /* SceneDelegate.swift in Sources */,
 				9AB1DF2A2BB7905D00F82D2C /* PostsListVM.swift in Sources */,
 				9AB1DF3B2BB7CCCC00F82D2C /* URLSessionService.swift in Sources */,
 				9AB1DF272BB78F9900F82D2C /* PostsListVC.swift in Sources */,
-				9AB1DF232BB7794F00F82D2C /* Likes.swift in Sources */,
+				9AB1DF232BB7794F00F82D2C /* LikesResponse.swift in Sources */,
 				9AB1DF382BB7CC9900F82D2C /* APIDataRequest.swift in Sources */,
 				9AB1DF342BB7C6CE00F82D2C /* CoreDataError.swift in Sources */,
 			);
@@ -399,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB1DF432BB7CE6200F82D2C /* NetworkServiceSpy.swift in Sources */,
 				9AB1DF052BB69A5800F82D2C /* SocialFeedTests.swift in Sources */,
 				9AB1DF402BB7CDC500F82D2C /* URLProtocolMock.swift in Sources */,
 			);
@@ -572,7 +580,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -606,7 +613,6 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -741,13 +747,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		9AB1DEF32BB69A4A00F82D2C /* SocialFeed.xcdatamodeld */ = {
+		9AB1DEF32BB69A4A00F82D2C /* CoreDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				9AB1DEF42BB69A4A00F82D2C /* SocialFeed.xcdatamodel */,
 			);
 			currentVersion = 9AB1DEF42BB69A4A00F82D2C /* SocialFeed.xcdatamodel */;
-			path = SocialFeed.xcdatamodeld;
+			path = CoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
