@@ -10,4 +10,6 @@ import Foundation
 
 class PostsListVM: ObservableObject {
     @Published var data: [Post]?
+    
+    
 }
