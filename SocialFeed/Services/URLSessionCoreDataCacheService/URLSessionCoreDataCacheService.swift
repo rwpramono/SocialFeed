@@ -19,7 +19,7 @@ public class URLSessionCoreDataCacheService: HttpNetwork {
     
     func execute<T: Codable>(_ apiData: APIDataRequest) -> AnyPublisher<T, Error> {
         guard let request = apiData.urlRequest else {
-            return Fail(error: NetworkServiceError.invalidAPIDataRequest).eraseToAnyPublisher()
+            return Fail(error: HttpNetworkError.invalidAPIDataRequest).eraseToAnyPublisher()
         }
         
         // TODO: Check if cache exist then return makeCachePublisher otherwise makeDataTaskPublisher
@@ -35,7 +35,7 @@ public class URLSessionCoreDataCacheService: HttpNetwork {
         }
         return Just(cacheData)
             .decode(type: T.self, decoder: decoder)
-            .mapError { $0 as? NetworkServiceError ?? .noResponseData }
+            .mapError { $0 as? HttpNetworkError ?? .noResponseData }
             .eraseToAnyPublisher()
     }
     
@@ -43,16 +43,16 @@ public class URLSessionCoreDataCacheService: HttpNetwork {
         session.dataTaskPublisher(for: urlRequest)
             .tryMap { [weak self] jsonData, response -> T in
                 guard let self, let response = response as? HTTPURLResponse else {
-                    throw NetworkServiceError.noResponseData
+                    throw HttpNetworkError.noResponseData
                 }
                 
                 switch response.statusCode {
                 case 200 ... 299: return try self.decoder.decode(T.self, from: jsonData)
-                default: throw NetworkServiceError.other(message: "\(response.statusCode)")
+                default: throw HttpNetworkError.other(message: "\(response.statusCode)")
                 }
             }
             .mapError { errorMessage in
-                errorMessage as? NetworkServiceError ?? NetworkServiceError.other(message: "\(errorMessage.localizedDescription)")
+                errorMessage as? HttpNetworkError ?? HttpNetworkError.other(message: "\(errorMessage.localizedDescription)")
             }
             .eraseToAnyPublisher()
     }

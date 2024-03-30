@@ -33,6 +33,9 @@
 		9AB1DF482BB7F28500F82D2C /* PostDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF472BB7F28500F82D2C /* PostDetailVM.swift */; };
 		9AB1E05C2BB7F6EE00F82D2C /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E05B2BB7F6EE00F82D2C /* HttpMethod.swift */; };
 		9AB1E05E2BB7FB1C00F82D2C /* QuickMockerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E05D2BB7FB1C00F82D2C /* QuickMockerAPI.swift */; };
+		9AB1E0662BB810A800F82D2C /* HttpNetworkErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0652BB810A800F82D2C /* HttpNetworkErrorTests.swift */; };
+		9AB1E0682BB8114900F82D2C /* CoreDataErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0672BB8114900F82D2C /* CoreDataErrorTests.swift */; };
+		9AB1E06A2BB813B500F82D2C /* QuickMockerAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0692BB813B500F82D2C /* QuickMockerAPITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		9AB1DF472BB7F28500F82D2C /* PostDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailVM.swift; sourceTree = "<group>"; };
 		9AB1E05B2BB7F6EE00F82D2C /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		9AB1E05D2BB7FB1C00F82D2C /* QuickMockerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMockerAPI.swift; sourceTree = "<group>"; };
+		9AB1E0652BB810A800F82D2C /* HttpNetworkErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpNetworkErrorTests.swift; sourceTree = "<group>"; };
+		9AB1E0672BB8114900F82D2C /* CoreDataErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataErrorTests.swift; sourceTree = "<group>"; };
+		9AB1E0692BB813B500F82D2C /* QuickMockerAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMockerAPITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,9 +153,11 @@
 		9AB1DF032BB69A5800F82D2C /* SocialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				9AB1DF412BB7CE5200F82D2C /* Spies */,
-				9AB1DF3E2BB7CDB800F82D2C /* Mock */,
 				9AB1DF042BB69A5800F82D2C /* SocialFeedTests.swift */,
+				9AB1E0642BB8108400F82D2C /* Misc */,
+				9AB1DF3E2BB7CDB800F82D2C /* Mock */,
+				9AB1E0612BB8106300F82D2C /* Services */,
+				9AB1DF412BB7CE5200F82D2C /* Spies */,
 			);
 			path = SocialFeedTests;
 			sourceTree = "<group>";
@@ -280,6 +288,23 @@
 				9AB1E05D2BB7FB1C00F82D2C /* QuickMockerAPI.swift */,
 			);
 			path = QuickMockerService;
+			sourceTree = "<group>";
+		};
+		9AB1E0612BB8106300F82D2C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1E0692BB813B500F82D2C /* QuickMockerAPITests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9AB1E0642BB8108400F82D2C /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1E0652BB810A800F82D2C /* HttpNetworkErrorTests.swift */,
+				9AB1E0672BB8114900F82D2C /* CoreDataErrorTests.swift */,
+			);
+			path = Misc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,7 +464,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AB1DF432BB7CE6200F82D2C /* NetworkServiceSpy.swift in Sources */,
+				9AB1E0662BB810A800F82D2C /* HttpNetworkErrorTests.swift in Sources */,
 				9AB1DF052BB69A5800F82D2C /* SocialFeedTests.swift in Sources */,
+				9AB1E06A2BB813B500F82D2C /* QuickMockerAPITests.swift in Sources */,
+				9AB1E0682BB8114900F82D2C /* CoreDataErrorTests.swift in Sources */,
 				9AB1DF402BB7CDC500F82D2C /* URLProtocolMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -673,13 +701,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = id.biz.pramida.SocialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SocialFeed";
 			};
 			name = Debug;
@@ -692,13 +724,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = id.biz.pramida.SocialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialFeed.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SocialFeed";
 			};
 			name = Release;
@@ -713,9 +749,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = id.biz.pramida.SocialFeedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = SocialFeed;
 			};
 			name = Debug;
@@ -730,9 +770,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = id.biz.pramida.SocialFeedUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = SocialFeed;
 			};
 			name = Release;

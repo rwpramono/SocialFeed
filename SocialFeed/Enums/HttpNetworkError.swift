@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum NetworkServiceError: Error, LocalizedError {
+public enum HttpNetworkError: Error, LocalizedError {
     case failed
     case badRequest
     case noResponseData
@@ -24,7 +24,7 @@ public enum NetworkServiceError: Error, LocalizedError {
         case .noResponseData:
             return "Empty response data"
         case .invalidAPIDataRequest:
-            return "Invalid API Data Protocol"
+            return "Invalid API Data Request"
         case .unableToDecodeResponseData:
             return "Unable to decode response object"
         case .other(message: let message):

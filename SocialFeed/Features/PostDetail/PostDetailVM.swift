@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 class PostDetailVM: ObservableObject {
-    @Published var data: CommentResponse
+    @Published var data: CommentResponse?
     
     
 }

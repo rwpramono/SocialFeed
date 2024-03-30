@@ -12,6 +12,7 @@ public struct QuickMockerAPI<T: Decodable>: APIDataRequest {
     public private(set) var urlComponent: URLComponents?
 
     init(_ httpMethod: HttpMethod, path: String, body: [String : Any], query: [String : String]) {
+        // FIXME: Change base url to get from xcconfig
         guard let baseUrl = URL(string: "https://t3s2gv7kzy.api.quickmocker.com"),
               var urlComponent = URLComponents(url: baseUrl, resolvingAgainstBaseURL: false) else {
             self.urlRequest = nil

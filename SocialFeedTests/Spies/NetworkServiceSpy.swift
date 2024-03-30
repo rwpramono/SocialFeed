@@ -9,7 +9,7 @@ import Combine
 import Foundation
 @testable import SocialFeed
 
-final class NetworkServiceSpy: URLSessionService {
+final class NetworkServiceSpy: URLSessionCoreDataCacheService {
     
     init() {
         let mockDecoder = JSONDecoder()
