@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-public class URLSessionService: HttpNetwork {
+public class URLSessionCoreDataCacheService: HttpNetwork {
     let session: URLSession
     let decoder: JSONDecoder
     
@@ -17,28 +17,43 @@ public class URLSessionService: HttpNetwork {
         self.decoder = decoder
     }
     
-    func fetch<T: Codable>(_ apiData: APIDataRequest) -> AnyPublisher<T, Error> {
-        guard let request = apiData.request("GET") else {
+    func execute<T: Codable>(_ apiData: APIDataRequest) -> AnyPublisher<T, Error> {
+        guard let request = apiData.urlRequest else {
             return Fail(error: NetworkServiceError.invalidAPIDataRequest).eraseToAnyPublisher()
         }
-
-        return session.dataTaskPublisher(for: request)
-            .mapError { _ in NetworkServiceError.badRequest }
-            .flatMap { data, response -> AnyPublisher<Data, Error> in
-                guard let response = response as? HTTPURLResponse else {
-                    return Fail(error: NetworkServiceError.noResponseData).eraseToAnyPublisher()
-                }
-
-                guard 200..<300 ~= response.statusCode else {
-                    return Fail(error: NetworkServiceError.other(message: "\(response.statusCode)"))
-                        .eraseToAnyPublisher()
+        
+        // TODO: Check if cache exist then return makeCachePublisher otherwise makeDataTaskPublisher
+        return makeDataTaskPublisher(request, type: T.self)
+    }
+    
+    private func makeCachePublisher<T: Codable>(_ urlRequest: URLRequest, type: T.Type) -> AnyPublisher<T, Error> {
+        // FIXME: Change to Core Data access cache
+        guard let cache = session.configuration.urlCache,
+              let cacheData = cache.cachedResponse(for: urlRequest)?.data else
+        {
+            return makeDataTaskPublisher(urlRequest, type: T.self)
+        }
+        return Just(cacheData)
+            .decode(type: T.self, decoder: decoder)
+            .mapError { $0 as? NetworkServiceError ?? .noResponseData }
+            .eraseToAnyPublisher()
+    }
+    
+    private func makeDataTaskPublisher<T: Codable>(_ urlRequest: URLRequest, type: T.Type) -> AnyPublisher<T, Error> {
+        session.dataTaskPublisher(for: urlRequest)
+            .tryMap { [weak self] jsonData, response -> T in
+                guard let self, let response = response as? HTTPURLResponse else {
+                    throw NetworkServiceError.noResponseData
                 }
                 
-                return Just(data)
-                    .mapError { _ in NetworkServiceError.unableToDecodeResponseData }
-                    .eraseToAnyPublisher()
+                switch response.statusCode {
+                case 200 ... 299: return try self.decoder.decode(T.self, from: jsonData)
+                default: throw NetworkServiceError.other(message: "\(response.statusCode)")
+                }
             }
-            .decode(type: T.self, decoder: decoder)
-        .eraseToAnyPublisher()
+            .mapError { errorMessage in
+                errorMessage as? NetworkServiceError ?? NetworkServiceError.other(message: "\(errorMessage.localizedDescription)")
+            }
+            .eraseToAnyPublisher()
     }
 }

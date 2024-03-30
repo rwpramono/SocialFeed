@@ -8,9 +8,8 @@
 import Foundation
 
 internal protocol APIDataRequest {
-    var urlComponent: URLComponents { get }
-    
-    init(path: String, query: [String : String])
-    
-    func request(_ httpMethod: String) -> URLRequest?
+    var urlRequest: URLRequest? { get }
+    var urlComponent: URLComponents? { get }
+
+    init(_ httpMethod: HttpMethod, path: String, body: [String: Any], query: [String: String])
 }

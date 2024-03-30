@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol HttpNetwork: AnyObject {
-    func fetch<T: Codable>(_ apiData: APIDataRequest) -> AnyPublisher<T, Error>
+    func execute<T: Codable>(_ apiData: APIDataRequest) -> AnyPublisher<T, Error>
 }
