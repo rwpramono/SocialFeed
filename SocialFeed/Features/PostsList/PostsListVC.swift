@@ -1,5 +1,5 @@
 //
-//  PostListVC.swift
+//  PostsListVC.swift
 //  SocialFeed
 //
 //  Created by Rachmat Wahyu Pramono on 30/03/24.
@@ -8,8 +8,11 @@
 import Foundation
 import UIKit
 
-class PostListVC: UIViewController {
-    init() {
+class PostsListVC: UIViewController {
+    private var viewModel: PostsListVC
+    
+    init(viewModel: PostsListVC) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
