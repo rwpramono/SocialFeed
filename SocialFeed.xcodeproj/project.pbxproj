@@ -25,10 +25,14 @@
 		9AB1DF342BB7C6CE00F82D2C /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF332BB7C6CE00F82D2C /* CoreDataError.swift */; };
 		9AB1DF362BB7CC5400F82D2C /* HttpNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF352BB7CC5400F82D2C /* HttpNetwork.swift */; };
 		9AB1DF382BB7CC9900F82D2C /* APIDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF372BB7CC9900F82D2C /* APIDataRequest.swift */; };
-		9AB1DF3B2BB7CCCC00F82D2C /* URLSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF3A2BB7CCCC00F82D2C /* URLSessionService.swift */; };
+		9AB1DF3B2BB7CCCC00F82D2C /* URLSessionCoreDataCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF3A2BB7CCCC00F82D2C /* URLSessionCoreDataCacheService.swift */; };
 		9AB1DF3D2BB7CD2400F82D2C /* HttpNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF3C2BB7CD2400F82D2C /* HttpNetworkError.swift */; };
 		9AB1DF402BB7CDC500F82D2C /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF3F2BB7CDC500F82D2C /* URLProtocolMock.swift */; };
 		9AB1DF432BB7CE6200F82D2C /* NetworkServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF422BB7CE6200F82D2C /* NetworkServiceSpy.swift */; };
+		9AB1DF462BB7F27D00F82D2C /* PostDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF452BB7F27D00F82D2C /* PostDetailVC.swift */; };
+		9AB1DF482BB7F28500F82D2C /* PostDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1DF472BB7F28500F82D2C /* PostDetailVM.swift */; };
+		9AB1E05C2BB7F6EE00F82D2C /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E05B2BB7F6EE00F82D2C /* HttpMethod.swift */; };
+		9AB1E05E2BB7FB1C00F82D2C /* QuickMockerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E05D2BB7FB1C00F82D2C /* QuickMockerAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,10 +75,14 @@
 		9AB1DF332BB7C6CE00F82D2C /* CoreDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
 		9AB1DF352BB7CC5400F82D2C /* HttpNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpNetwork.swift; sourceTree = "<group>"; };
 		9AB1DF372BB7CC9900F82D2C /* APIDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataRequest.swift; sourceTree = "<group>"; };
-		9AB1DF3A2BB7CCCC00F82D2C /* URLSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionService.swift; sourceTree = "<group>"; };
+		9AB1DF3A2BB7CCCC00F82D2C /* URLSessionCoreDataCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionCoreDataCacheService.swift; sourceTree = "<group>"; };
 		9AB1DF3C2BB7CD2400F82D2C /* HttpNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpNetworkError.swift; sourceTree = "<group>"; };
 		9AB1DF3F2BB7CDC500F82D2C /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
 		9AB1DF422BB7CE6200F82D2C /* NetworkServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpy.swift; sourceTree = "<group>"; };
+		9AB1DF452BB7F27D00F82D2C /* PostDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailVC.swift; sourceTree = "<group>"; };
+		9AB1DF472BB7F28500F82D2C /* PostDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailVM.swift; sourceTree = "<group>"; };
+		9AB1E05B2BB7F6EE00F82D2C /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		9AB1E05D2BB7FB1C00F82D2C /* QuickMockerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMockerAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +176,7 @@
 		9AB1DF242BB78F3300F82D2C /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				9AB1DF442BB7F26B00F82D2C /* PostDetail */,
 				9AB1DF282BB7904100F82D2C /* PostsList */,
 			);
 			path = Features;
@@ -176,9 +185,10 @@
 		9AB1DF252BB78F4A00F82D2C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				9AB1DF392BB7CCB800F82D2C /* URLSessionService */,
+				9AB1E0602BB7FB6600F82D2C /* QuickMockerService */,
 				9AB1DF322BB7C6B700F82D2C /* CoreDataService */,
 				9AB1DF2D2BB7BE9D00F82D2C /* Protocols */,
+				9AB1DF392BB7CCB800F82D2C /* URLSessionCoreDataCacheService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -215,6 +225,9 @@
 		9AB1DF312BB7C67500F82D2C /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				9AB1DF332BB7C6CE00F82D2C /* CoreDataError.swift */,
+				9AB1E05B2BB7F6EE00F82D2C /* HttpMethod.swift */,
+				9AB1DF3C2BB7CD2400F82D2C /* HttpNetworkError.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -222,20 +235,18 @@
 		9AB1DF322BB7C6B700F82D2C /* CoreDataService */ = {
 			isa = PBXGroup;
 			children = (
-				9AB1DF332BB7C6CE00F82D2C /* CoreDataError.swift */,
 				9AB1DF2B2BB7BE8500F82D2C /* CoreDataService.swift */,
 				9AB1DEF32BB69A4A00F82D2C /* CoreDataModel.xcdatamodeld */,
 			);
 			path = CoreDataService;
 			sourceTree = "<group>";
 		};
-		9AB1DF392BB7CCB800F82D2C /* URLSessionService */ = {
+		9AB1DF392BB7CCB800F82D2C /* URLSessionCoreDataCacheService */ = {
 			isa = PBXGroup;
 			children = (
-				9AB1DF3A2BB7CCCC00F82D2C /* URLSessionService.swift */,
-				9AB1DF3C2BB7CD2400F82D2C /* HttpNetworkError.swift */,
+				9AB1DF3A2BB7CCCC00F82D2C /* URLSessionCoreDataCacheService.swift */,
 			);
-			path = URLSessionService;
+			path = URLSessionCoreDataCacheService;
 			sourceTree = "<group>";
 		};
 		9AB1DF3E2BB7CDB800F82D2C /* Mock */ = {
@@ -252,6 +263,23 @@
 				9AB1DF422BB7CE6200F82D2C /* NetworkServiceSpy.swift */,
 			);
 			path = Spies;
+			sourceTree = "<group>";
+		};
+		9AB1DF442BB7F26B00F82D2C /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1DF452BB7F27D00F82D2C /* PostDetailVC.swift */,
+				9AB1DF472BB7F28500F82D2C /* PostDetailVM.swift */,
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
+		9AB1E0602BB7FB6600F82D2C /* QuickMockerService */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1E05D2BB7FB1C00F82D2C /* QuickMockerAPI.swift */,
+			);
+			path = QuickMockerService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,17 +416,21 @@
 				9AB1DF212BB7776D00F82D2C /* CommentResponse.swift in Sources */,
 				9AB1DEEB2BB69A4A00F82D2C /* AppDelegate.swift in Sources */,
 				9AB1DF2F2BB7BED100F82D2C /* DataPersistence.swift in Sources */,
+				9AB1DF482BB7F28500F82D2C /* PostDetailVM.swift in Sources */,
 				9AB1DF3D2BB7CD2400F82D2C /* HttpNetworkError.swift in Sources */,
 				9AB1DF1F2BB765DD00F82D2C /* PostsResponse.swift in Sources */,
 				9AB1DEF52BB69A4A00F82D2C /* CoreDataModel.xcdatamodeld in Sources */,
 				9AB1DF2C2BB7BE8500F82D2C /* CoreDataService.swift in Sources */,
 				9AB1DEED2BB69A4A00F82D2C /* SceneDelegate.swift in Sources */,
 				9AB1DF2A2BB7905D00F82D2C /* PostsListVM.swift in Sources */,
-				9AB1DF3B2BB7CCCC00F82D2C /* URLSessionService.swift in Sources */,
+				9AB1DF3B2BB7CCCC00F82D2C /* URLSessionCoreDataCacheService.swift in Sources */,
 				9AB1DF272BB78F9900F82D2C /* PostsListVC.swift in Sources */,
 				9AB1DF232BB7794F00F82D2C /* LikesResponse.swift in Sources */,
+				9AB1E05E2BB7FB1C00F82D2C /* QuickMockerAPI.swift in Sources */,
+				9AB1E05C2BB7F6EE00F82D2C /* HttpMethod.swift in Sources */,
 				9AB1DF382BB7CC9900F82D2C /* APIDataRequest.swift in Sources */,
 				9AB1DF342BB7C6CE00F82D2C /* CoreDataError.swift in Sources */,
+				9AB1DF462BB7F27D00F82D2C /* PostDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
