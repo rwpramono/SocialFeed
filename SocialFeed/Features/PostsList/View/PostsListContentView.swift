@@ -23,9 +23,9 @@ internal class PostsListContentView: UIView {
     
     private func setupTableView() {
         addSubview(tableView)
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.allowsSelection = false
-        tableView.estimatedRowHeight = 64
+        tableView.estimatedRowHeight = 140
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
