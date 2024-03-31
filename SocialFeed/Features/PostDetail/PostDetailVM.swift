@@ -11,7 +11,7 @@ import Foundation
 final class PostDetailVM: ObservableObject {
     private let networkService: HttpNetwork
 
-    private var bindings = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
 
     @Published var data: CommentResponse?
     

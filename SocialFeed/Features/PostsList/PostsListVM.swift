@@ -11,7 +11,7 @@ import Foundation
 class PostsListVM: ObservableObject {
     private let networkService: HttpNetwork
 
-    private var bindings = Set<AnyCancellable>()
+    private var cancellables = Set<AnyCancellable>()
 
     @Published var data: [Post]?
 
@@ -19,22 +19,27 @@ class PostsListVM: ObservableObject {
         self.networkService = networkService
     }
     
-    internal func getAllPostsData(_ onComplete: (() -> ())?) {
+    func getAllPostsData() {
         let api = PostAPICollection.getAllPostsMock()
         networkService.execute(api)
-            .receive(on: RunLoop.main)
+            .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { completion in
-                    switch completion {
-                    case .finished:
-                        onComplete?()
-                    case .failure(let error):
-                        print("Some error \(error.localizedDescription)")
-                    }
-                },
+                receiveCompletion: { _ in },
                 receiveValue: { [weak self] (resultData: PostsResponse) in
                     self?.data = resultData.posts
                 }
-            ).store(in: &bindings)
+            ).store(in: &cancellables)
+    }
+    
+    func likeAPost(postId: Int) {
+        let api = PostAPICollection.likeAPost(postId)
+        networkService.execute(api)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { [weak self] (resultData: PostsResponse) in
+                    self?.data = resultData.posts
+                }
+            ).store(in: &cancellables)
     }
 }

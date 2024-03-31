@@ -10,6 +10,9 @@ import Combine
 import UIKit
 
 internal class PostItemViewCell: UITableViewCell {
+    let cellTapPublishers = PassthroughSubject<Void, Never>()
+    let likeTapPublishers = PassthroughSubject<Void, Never>()
+
     let contentContainer: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -117,6 +120,9 @@ internal class PostItemViewCell: UITableViewCell {
             descriptionLabel.leadingAnchor.constraint(equalTo: contentContainer.leadingAnchor, constant: 8),
             descriptionLabel.trailingAnchor.constraint(equalTo: contentContainer.trailingAnchor, constant: -8),
         ])
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cellTapped))
+        contentView.addGestureRecognizer(tapGesture)
     }
     
     private func setupInteractionContainer() {
@@ -136,7 +142,17 @@ internal class PostItemViewCell: UITableViewCell {
             commentLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentContainer.trailingAnchor, constant: -8),
             commentLabel.bottomAnchor.constraint(equalTo: contentContainer.bottomAnchor, constant: -8)
         ])
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(likeLabelTapped))
+        likeLabel.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func likeLabelTapped() {
+        likeTapPublishers.send()
+    }
 
+    @objc private func cellTapped() {
+        cellTapPublishers.send()
     }
 
     func configure(post: Post) {
