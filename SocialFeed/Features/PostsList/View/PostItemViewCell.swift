@@ -10,30 +10,74 @@ import Combine
 import UIKit
 
 internal class PostItemViewCell: UITableViewCell {
+    let contentContainer: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 8
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 2)
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowRadius = 4
+        return view
+    }()
     
-    private lazy var titleLabel = UILabel()
-    private lazy var userNameLabel = UILabel()
-    private lazy var descriptionLabel = UILabel()
-    private lazy var interactionContainer = UIView()
+    let userNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14) 
+        label.textColor = .black 
+        return label
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.textColor = .black
+        return label
+    }()
+    
+    let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 3
+        label.lineBreakMode = .byTruncatingTail
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .black
+        return label
+    }()
+    
+    let likeLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.backgroundColor = UIColor.systemPink
+        label.layer.cornerRadius = 4
+        label.layer.masksToBounds = true
+        return label
+    }()
+    
+    let commentLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = .blue
+        label.textAlignment = .center
+        label.layer.borderWidth = 1.0
+        label.layer.borderColor = UIColor.blue.cgColor
+        label.layer.cornerRadius = 4
+        label.layer.masksToBounds = true
+        label.isUserInteractionEnabled = true
+        return label
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .clear // very important
-        layer.masksToBounds = false
-        layer.shadowOpacity = 0.10
-        layer.shadowRadius = 8.0
-        layer.shadowOffset = CGSize(width: 0, height: 5)
-        layer.shadowColor = UIColor.black.cgColor
-        
-        contentView.backgroundColor = .white
-        contentView.layer.cornerRadius = 8
-
-        contentView.preservesSuperviewLayoutMargins = true
-        contentView.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-
-        setupUserNameLabel()
-        setupTitleLabel()
-        setupDescriptionLabel()
+        setupContentContainer()
         setupInteractionContainer()
     }
     
@@ -41,54 +85,65 @@ internal class PostItemViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupUserNameLabel() {
-        contentView.addSubview(userNameLabel)
-        
-        userNameLabel.font = .systemFont(ofSize: 14)
-        userNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        userNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16).isActive = true
-        userNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        userNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentContainer.layer.shadowPath = UIBezierPath(
+            roundedRect: contentContainer.bounds,
+            cornerRadius: contentContainer.layer.cornerRadius
+        ).cgPath
     }
     
-    private func setupTitleLabel() {
-        contentView.addSubview(titleLabel)
-        
-        titleLabel.font = .boldSystemFont(ofSize: 14)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 16).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
+    private func setupContentContainer() {
+        contentView.addSubview(contentContainer)
+        contentContainer.addSubview(userNameLabel)
+        contentContainer.addSubview(titleLabel)
+        contentContainer.addSubview(descriptionLabel)
+
+        NSLayoutConstraint.activate([
+            contentContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            contentContainer.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            contentContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            contentContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            
+            userNameLabel.topAnchor.constraint(equalTo: contentContainer.topAnchor, constant: 8),
+            userNameLabel.leadingAnchor.constraint(equalTo: contentContainer.leadingAnchor, constant: 8),
+            userNameLabel.trailingAnchor.constraint(equalTo: contentContainer.trailingAnchor, constant: -8),
+            
+            titleLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 12),
+            titleLabel.leadingAnchor.constraint(equalTo: contentContainer.leadingAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: contentContainer.trailingAnchor, constant: -8),
+
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            descriptionLabel.leadingAnchor.constraint(equalTo: contentContainer.leadingAnchor, constant: 8),
+            descriptionLabel.trailingAnchor.constraint(equalTo: contentContainer.trailingAnchor, constant: -8),
+        ])
     }
     
-    private func setupDescriptionLabel() {
-        contentView.addSubview(descriptionLabel)
+    private func setupInteractionContainer() {
+        contentContainer.addSubview(likeLabel)
+        contentContainer.addSubview(commentLabel)
         
-        descriptionLabel.font = .systemFont(ofSize: 12)
-        descriptionLabel.numberOfLines = 4
-        descriptionLabel.lineBreakMode = .byTruncatingTail
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
+        NSLayoutConstraint.activate([
+            likeLabel.widthAnchor.constraint(equalToConstant: 80),
+            likeLabel.heightAnchor.constraint(equalToConstant: 24),
+            likeLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 12),
+            likeLabel.leadingAnchor.constraint(equalTo: contentContainer.leadingAnchor, constant: 8),
+            
+            commentLabel.widthAnchor.constraint(equalToConstant: 120),
+            commentLabel.heightAnchor.constraint(equalToConstant: 24),
+            commentLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 12),
+            commentLabel.leadingAnchor.constraint(equalTo: likeLabel.trailingAnchor, constant: 16),
+            commentLabel.trailingAnchor.constraint(lessThanOrEqualTo: contentContainer.trailingAnchor, constant: -8),
+            commentLabel.bottomAnchor.constraint(equalTo: contentContainer.bottomAnchor, constant: -8)
+        ])
+
     }
-    
-//    private func setupContainerStackView() {
-//        contentView.addSubview(containerStackView)
-//        
-//        containerStackView.axis = .vertical
-//        containerStackView.setCustomSpacing(16, after: touchAreaView)
-//        containerStackView.translatesAutoresizingMaskIntoConstraints = false
-//        containerStackView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-//        containerStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24).isActive = true
-//        containerStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-//        containerStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
-//    }
-    
+
     func configure(post: Post) {
         titleLabel.text = post.title
         userNameLabel.text = post.userName
         descriptionLabel.text = post.description
+        likeLabel.text = "\(post.totalLikes) Likes"
+        commentLabel.text = "\(post.totalComments) Comments"
     }
 }

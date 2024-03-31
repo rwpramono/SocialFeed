@@ -53,7 +53,7 @@ extension PostsListVC: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.configure(title: data.title, userName: data.userName, desciption: data.description)
+        cell.configure(post: data)
         return cell
     }
 }
