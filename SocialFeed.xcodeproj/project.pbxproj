@@ -36,6 +36,7 @@
 		9AB1E0662BB810A800F82D2C /* HttpNetworkErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0652BB810A800F82D2C /* HttpNetworkErrorTests.swift */; };
 		9AB1E0682BB8114900F82D2C /* CoreDataErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0672BB8114900F82D2C /* CoreDataErrorTests.swift */; };
 		9AB1E06A2BB813B500F82D2C /* QuickMockerAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0692BB813B500F82D2C /* QuickMockerAPITests.swift */; };
+		9AB1E06D2BB901FA00F82D2C /* PostAPICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E06C2BB901FA00F82D2C /* PostAPICollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		9AB1E0652BB810A800F82D2C /* HttpNetworkErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpNetworkErrorTests.swift; sourceTree = "<group>"; };
 		9AB1E0672BB8114900F82D2C /* CoreDataErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataErrorTests.swift; sourceTree = "<group>"; };
 		9AB1E0692BB813B500F82D2C /* QuickMockerAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMockerAPITests.swift; sourceTree = "<group>"; };
+		9AB1E06C2BB901FA00F82D2C /* PostAPICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPICollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 		9AB1DF252BB78F4A00F82D2C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				9AB1E06B2BB901D800F82D2C /* APICollection */,
 				9AB1E0602BB7FB6600F82D2C /* QuickMockerService */,
 				9AB1DF322BB7C6B700F82D2C /* CoreDataService */,
 				9AB1DF2D2BB7BE9D00F82D2C /* Protocols */,
@@ -305,6 +308,14 @@
 				9AB1E0672BB8114900F82D2C /* CoreDataErrorTests.swift */,
 			);
 			path = Misc;
+			sourceTree = "<group>";
+		};
+		9AB1E06B2BB901D800F82D2C /* APICollection */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1E06C2BB901FA00F82D2C /* PostAPICollection.swift */,
+			);
+			path = APICollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,6 +466,7 @@
 				9AB1E05C2BB7F6EE00F82D2C /* HttpMethod.swift in Sources */,
 				9AB1DF382BB7CC9900F82D2C /* APIDataRequest.swift in Sources */,
 				9AB1DF342BB7C6CE00F82D2C /* CoreDataError.swift in Sources */,
+				9AB1E06D2BB901FA00F82D2C /* PostAPICollection.swift in Sources */,
 				9AB1DF462BB7F27D00F82D2C /* PostDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
