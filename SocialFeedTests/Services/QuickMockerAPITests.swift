@@ -15,7 +15,9 @@ class QuickMockerAPITests: XCTestCase {
     }
     
     func test_should_return_not_nil() throws {
-        let sut = QuickMockerAPI<Dummy>(.patch, path: "/dummy", body: ["dummy":"dummy"], query: ["dummy":"dummy"])
+        let sut = QuickMockerAPI<Dummy>(.patch, path: "/dummy")
+            .body(["dummy":"dummy"])
+            .query(["dummy":"dummy"])
         XCTAssertNotNil(sut.urlRequest)
         XCTAssertNotNil(sut.urlComponent)
         XCTAssertEqual(sut.urlComponent?.path, "/dummy")
@@ -23,13 +25,13 @@ class QuickMockerAPITests: XCTestCase {
     }
     
     func test_with_invalid_path_should_return_nil() throws {
-        let sut = QuickMockerAPI<Dummy>(.patch, path: "foo<bar>baz", body: [:], query: [:])
+        let sut = QuickMockerAPI<Dummy>(.patch, path: "foo<bar>baz")
         XCTAssertNil(sut.urlRequest)
         XCTAssertNil(sut.urlComponent)
     }
     
     func test_with_invalid_base_url_should_return_nil() throws {
-        let sut = QuickMockerAPI<Dummy>(.patch, path: "foo%zbar", body: [:], query: [:])
+        let sut = QuickMockerAPI<Dummy>(.patch, path: "foo%zbar")
         XCTAssertNil(sut.urlRequest)
         XCTAssertNil(sut.urlComponent)
     }

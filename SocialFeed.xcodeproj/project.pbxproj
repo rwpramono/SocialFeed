@@ -37,6 +37,8 @@
 		9AB1E0682BB8114900F82D2C /* CoreDataErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0672BB8114900F82D2C /* CoreDataErrorTests.swift */; };
 		9AB1E06A2BB813B500F82D2C /* QuickMockerAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0692BB813B500F82D2C /* QuickMockerAPITests.swift */; };
 		9AB1E06D2BB901FA00F82D2C /* PostAPICollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E06C2BB901FA00F82D2C /* PostAPICollection.swift */; };
+		9AB1E0722BB911A600F82D2C /* PostItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0712BB911A600F82D2C /* PostItemViewCell.swift */; };
+		9AB1E0742BB918F300F82D2C /* PostsListContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E0732BB918F300F82D2C /* PostsListContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		9AB1E0672BB8114900F82D2C /* CoreDataErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataErrorTests.swift; sourceTree = "<group>"; };
 		9AB1E0692BB813B500F82D2C /* QuickMockerAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMockerAPITests.swift; sourceTree = "<group>"; };
 		9AB1E06C2BB901FA00F82D2C /* PostAPICollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPICollection.swift; sourceTree = "<group>"; };
+		9AB1E0712BB911A600F82D2C /* PostItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItemViewCell.swift; sourceTree = "<group>"; };
+		9AB1E0732BB918F300F82D2C /* PostsListContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +211,7 @@
 		9AB1DF282BB7904100F82D2C /* PostsList */ = {
 			isa = PBXGroup;
 			children = (
+				9AB1E0702BB9119400F82D2C /* View */,
 				9AB1DF262BB78F9900F82D2C /* PostsListVC.swift */,
 				9AB1DF292BB7905D00F82D2C /* PostsListVM.swift */,
 			);
@@ -316,6 +321,15 @@
 				9AB1E06C2BB901FA00F82D2C /* PostAPICollection.swift */,
 			);
 			path = APICollection;
+			sourceTree = "<group>";
+		};
+		9AB1E0702BB9119400F82D2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1E0712BB911A600F82D2C /* PostItemViewCell.swift */,
+				9AB1E0732BB918F300F82D2C /* PostsListContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,6 +465,8 @@
 				9AB1DF362BB7CC5400F82D2C /* HttpNetwork.swift in Sources */,
 				9AB1DF212BB7776D00F82D2C /* CommentResponse.swift in Sources */,
 				9AB1DEEB2BB69A4A00F82D2C /* AppDelegate.swift in Sources */,
+				9AB1E0722BB911A600F82D2C /* PostItemViewCell.swift in Sources */,
+				9AB1E0742BB918F300F82D2C /* PostsListContentView.swift in Sources */,
 				9AB1DF2F2BB7BED100F82D2C /* DataPersistence.swift in Sources */,
 				9AB1DF482BB7F28500F82D2C /* PostDetailVM.swift in Sources */,
 				9AB1DF3D2BB7CD2400F82D2C /* HttpNetworkError.swift in Sources */,

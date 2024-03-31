@@ -11,5 +11,8 @@ internal protocol APIDataRequest {
     var urlRequest: URLRequest? { get }
     var urlComponent: URLComponents? { get }
 
-    init(_ httpMethod: HttpMethod, path: String, body: [String: Any], query: [String: String])
+    init(_ httpMethod: HttpMethod, path: String)
+    
+    func body(_ body: [String : Any]) -> Self
+    func query(_ query: [String : String]) -> Self
 }

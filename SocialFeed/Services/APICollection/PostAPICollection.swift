@@ -9,22 +9,22 @@ import Foundation
 
 public struct PostAPICollection {
     static func getAllPostsMock() -> APIDataRequest {
-        QuickMockerAPI<PostsResponse>(.get, path: "/posts", body: [:], query: [:])
+        QuickMockerAPI<PostsResponse>(.get, path: "/posts")
     }
     
     static func getAllCommentsofPostMock(_ postId: Int) -> APIDataRequest {
-        QuickMockerAPI<PostsResponse>(.get, path: "/posts/\(postId)/comments", body: [:], query: [:])
+        QuickMockerAPI<PostsResponse>(.get, path: "/posts/\(postId)/comments")
     }
     
     static func createAPost(_ postData: Post) -> APIDataRequest {
-        QuickMockerAPI<PostsResponse>(.post, path: "/posts", body: [:], query: [:])
+        QuickMockerAPI<PostsResponse>(.post, path: "/posts")
     }
     
     static func likeAPost(_ postId: Int) -> APIDataRequest {
-        QuickMockerAPI<PostsResponse>(.post, path: "/posts/\(postId)/likes", body: [:], query: [:])
+        QuickMockerAPI<PostsResponse>(.post, path: "/posts/\(postId)/likes")
     }
     
     static func commentAPost(_ postId: Int, by userId: String, with commentText: String) -> APIDataRequest {
-        QuickMockerAPI<PostsResponse>(.post, path: "/posts/\(postId)/comments", body: [:], query: [:])
+        QuickMockerAPI<PostsResponse>(.post, path: "/posts/\(postId)/comments")
     }
 }

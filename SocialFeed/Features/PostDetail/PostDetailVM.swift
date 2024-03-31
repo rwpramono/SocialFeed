@@ -8,8 +8,16 @@
 import Combine
 import Foundation
 
-class PostDetailVM: ObservableObject {
+final class PostDetailVM: ObservableObject {
+    private let networkService: HttpNetwork
+
+    private var bindings = Set<AnyCancellable>()
+
     @Published var data: CommentResponse?
+    
+    init(networkService: HttpNetwork) {
+        self.networkService = networkService
+    }
     
     
 }
