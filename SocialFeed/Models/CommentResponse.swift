@@ -16,11 +16,12 @@ public struct Comment: Codable {
         case text
     }
 
-    public init(id: String, userID: String, text: String) {
-        self.id = id
-        self.userID = userID
-        self.text = text
-    }
+    // TODO: Delete if unecessary
+//    public init(id: String, userID: String, text: String) {
+//        self.id = id
+//        self.userID = userID
+//        self.text = text
+//    }
 }
 
 public struct CommentResponse: Codable {
@@ -32,8 +33,9 @@ public struct CommentResponse: Codable {
         case comments
     }
 
-    public init(totalComments: Int, comments: [Comment]) {
-        self.totalComments = totalComments
-        self.comments = comments
-    }
+    // TODO: Delete if unecessary
+//    public init(totalComments: Int, comments: [Comment]) {
+//        self.totalComments = totalComments
+//        self.comments = comments
+//    }
 }

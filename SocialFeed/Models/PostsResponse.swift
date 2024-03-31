@@ -10,9 +10,10 @@ import Foundation
 public struct PostsResponse: Codable {
     public let posts: [Post]
 
-    public init(posts: [Post]) {
-        self.posts = posts
-    }
+    // TODO: Delete if unecessary
+//    public init(posts: [Post]) {
+//        self.posts = posts
+//    }
 }
 
 public struct Post: Codable {
@@ -26,12 +27,13 @@ public struct Post: Codable {
         case totalComments = "total_comments"
     }
 
-    public init(id: Int, title: String, description: String, userName: String, totalLikes: Int, totalComments: Int) {
-        self.id = id
-        self.title = title
-        self.description = description
-        self.userName = userName
-        self.totalLikes = totalLikes
-        self.totalComments = totalComments
-    }
+    // TODO: Delete if unecessary
+//    public init(id: Int, title: String, description: String, userName: String, totalLikes: Int, totalComments: Int) {
+//        self.id = id
+//        self.title = title
+//        self.description = description
+//        self.userName = userName
+//        self.totalLikes = totalLikes
+//        self.totalComments = totalComments
+//    }
 }
