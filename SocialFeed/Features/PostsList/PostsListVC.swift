@@ -51,6 +51,16 @@ final class PostsListVC: UIViewController {
                 self?.contentView.tableView.reloadData()
             }
             .store(in: &cancellables)
+        
+        viewModel.$errorMessage
+            .dropFirst()
+            .first(where: { !$0.isEmpty })
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] errorMessage in
+                self?.title = "API Gateway Error: \(errorMessage)"
+            }
+            .store(in: &cancellables)
+
     }
 }
 

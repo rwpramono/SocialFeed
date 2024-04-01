@@ -13,6 +13,7 @@ final class PostsListVM: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
 
+    @Published var errorMessage: String = ""
     @Published var data: [Post]?
 
     init(networkService: HttpNetwork) {
@@ -24,7 +25,15 @@ final class PostsListVM: ObservableObject {
         networkService.execute(api)
             .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { _ in },
+                receiveCompletion: { [weak self] completion in
+                    if case .failure(let failure) = completion {
+                        switch failure.localizedDescription {
+                        case "429": self?.errorMessage = "Daily Quota Reached"
+                        default:
+                            self?.errorMessage = "Unknown"
+                        }
+                    }
+                },
                 receiveValue: { [weak self] (resultData: PostsResponse) in
                     self?.data = resultData.posts
                 }
