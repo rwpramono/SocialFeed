@@ -8,8 +8,11 @@
 import Foundation
 
 class PostDetailFactory {
-    static func makePostsDetailVC() -> PostDetailVC {
-        let vm = PostDetailVM(networkService: DependencyContainer.shared.networkService)
+    static func makePostsDetailVC(postData: Post) -> PostDetailVC {
+        let vm = PostDetailVM(
+            networkService: DependencyContainer.shared.networkService,
+            post: postData
+        )
         return PostDetailVC(viewModel: vm)
     }
 }

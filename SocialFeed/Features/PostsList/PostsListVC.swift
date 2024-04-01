@@ -33,16 +33,19 @@ class PostsListVC: UIViewController {
         navigationItem.title = "Social Feed"
 
         configureDataSource()
-        configureDataBinding()        
+        configureDataBinding()
+        
+        viewModel.getAllPostsData()
     }
     
     private func configureDataSource() {
         contentView.tableView.dataSource = self
-        contentView.tableView.delegate = self
     }
     
     private func configureDataBinding() {
         viewModel.$data
+            .compactMap { $0 }
+            .first(where: { !$0.isEmpty })
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.contentView.tableView.reloadData()
@@ -64,8 +67,8 @@ extension PostsListVC: UITableViewDataSource {
         
         cell.configure(post: data)
         cell.cellTapPublishers
-            .sink { [weak self] _ in
-                self?.navigateToDetail()
+            .sink { [weak self] postData in
+                self?.navigateToDetail(postData: postData)
             }
             .store(in: &cancellables)
         
@@ -77,14 +80,8 @@ extension PostsListVC: UITableViewDataSource {
         return cell
     }
     
-    func navigateToDetail() {
-        let detailVc = PostDetailFactory.makePostsDetailVC()
+    func navigateToDetail(postData: Post) {
+        let detailVc = PostDetailFactory.makePostsDetailVC(postData: postData)
         self.navigationController?.pushViewController(detailVc, animated: true)
-    }
-}
-
-extension PostsListVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
