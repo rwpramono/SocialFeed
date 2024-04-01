@@ -29,6 +29,8 @@ final class PostsListVC: UIViewController {
     }
 
     override func viewDidLoad() {
+        let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonTapped))
+        navigationItem.rightBarButtonItem = addButton
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Social Feed"
 
@@ -61,6 +63,32 @@ final class PostsListVC: UIViewController {
             }
             .store(in: &cancellables)
 
+    }
+    
+    @objc private func addButtonTapped() {
+        let alertController = UIAlertController(title: "New Article", message: "Enter article content", preferredStyle: .alert)
+        
+        alertController.addTextField { textField in
+            textField.placeholder = "Title"
+        }
+        alertController.addTextField { textField in
+            textField.placeholder = "Article content"
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let createAction = UIAlertAction(title: "Create", style: .default) { [weak self] _ in
+            guard let title = alertController.textFields?.first?.text,
+                  let content = alertController.textFields?.last?.text,
+                  !title.isEmpty, !content.isEmpty else {
+                return
+            }
+            self?.viewModel.postArticle(title: title, content: content)
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(createAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
 

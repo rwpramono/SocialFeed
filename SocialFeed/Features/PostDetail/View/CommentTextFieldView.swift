@@ -35,6 +35,7 @@ final class CommentTextFieldView: UIView, UITextFieldDelegate {
         let submitButton = UIButton(type: .system)
         submitButton.translatesAutoresizingMaskIntoConstraints = false
         submitButton.setTitle("Submit", for: .normal)
+        submitButton.setTitleColor(.white, for: .normal)
         submitButton.backgroundColor = .blue
         submitButton.layer.cornerRadius = 5
 

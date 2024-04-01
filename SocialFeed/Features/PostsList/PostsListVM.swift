@@ -55,4 +55,18 @@ final class PostsListVM: ObservableObject {
                 }
             ).store(in: &cancellables)
     }
+    
+    func postArticle(title: String, content: String) {
+        let api = PostAPICollection.createAPost(Post(id: 0, totalLikes: 0, totalComments: 0, title: title, description: content, userName: "Current User"))
+        networkService.execute(api)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { [weak self] (postData: Post) in
+                    guard let self else { return }
+                    self.data?.append(postData)
+                }
+            ).store(in: &cancellables)
+
+    }
 }
