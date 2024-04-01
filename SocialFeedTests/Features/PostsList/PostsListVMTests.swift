@@ -64,6 +64,7 @@ final class PostsListVMTests: XCTestCase {
     }
 
     func test_likeAPost_shouldCallService_with_results() throws {
+        let dummyPost = Post(id: 123, totalLikes: 0, totalComments: 0, title: "title", description: "description", userName: "userName")
         let expectation = self.expectation(description: "PostsListVMTests.GetAllPostsDataExpectation")
         URLProtocolMock.requestHandler = { request in
             let api = PostAPICollection.likeAPost(1234)
@@ -82,10 +83,12 @@ final class PostsListVMTests: XCTestCase {
                 ]
             }
             """
+
             let jsonData = Data(jsonString.utf8)
             return (response, jsonData)
         }
-                
+        
+        sut.data = [dummyPost, dummyPost, dummyPost]
         sut.$data
             .dropFirst()
             .sink(receiveValue: { data in
@@ -93,11 +96,11 @@ final class PostsListVMTests: XCTestCase {
             })
             .store(in: &cancellables)
         
-        sut.getAllPostsData()
+        sut.likeAPost(postId: 123)
 
         self.waitForExpectations(timeout: 10.0, handler: nil)
 
         XCTAssertNotNil(sut.data)
-        XCTAssertEqual(sut.data?.count, 1)
+        XCTAssertEqual(sut.data?.count, 3)
     }
 }

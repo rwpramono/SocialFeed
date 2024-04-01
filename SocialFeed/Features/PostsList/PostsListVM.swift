@@ -8,7 +8,7 @@
 import Combine
 import Foundation
 
-class PostsListVM: ObservableObject {
+final class PostsListVM: ObservableObject {
     private let networkService: HttpNetwork
 
     private var cancellables = Set<AnyCancellable>()

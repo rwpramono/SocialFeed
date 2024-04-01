@@ -9,7 +9,7 @@ import XCTest
 
 @testable import SocialFeed
 
-class CoreDataErrorTests: XCTestCase {
+final class CoreDataErrorTests: XCTestCase {
     
     func test_should_return_failed_to_save_with_reasons() throws {
         let sut = CoreDataError.loadFailed(HttpNetworkError.badRequest)

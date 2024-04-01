@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DependencyContainer {
+final class DependencyContainer {
     static let shared = DependencyContainer()
     private init() {}
 

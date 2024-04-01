@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PostDetailContentView: UIView {
+final class PostDetailContentView: UIView {
     lazy var tableView = UITableView()
     lazy var textfield = CommentTextFieldView()
 

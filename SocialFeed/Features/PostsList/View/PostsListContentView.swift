@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class PostsListContentView: UIView {
+final class PostsListContentView: UIView {
     lazy var tableView = UITableView()
     
     public init() {

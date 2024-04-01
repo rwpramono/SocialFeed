@@ -9,7 +9,7 @@ import XCTest
 
 @testable import SocialFeed
 
-class QuickMockerAPITests: XCTestCase {
+final class QuickMockerAPITests: XCTestCase {
     struct Dummy: Codable, Hashable {
         let dummyValue: String
     }

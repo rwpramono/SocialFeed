@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import UIKit
 
-class PostsListVC: UIViewController {
+final class PostsListVC: UIViewController {
     private var viewModel: PostsListVM
     private lazy var contentView = PostsListContentView()
 

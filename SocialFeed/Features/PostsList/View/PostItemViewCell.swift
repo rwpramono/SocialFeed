@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import UIKit
 
-class PostItemViewCell: UITableViewCell {
+final class PostItemViewCell: UITableViewCell {
     private var postData: Post?
     
     let cellTapPublishers = PassthroughSubject<Post, Never>()

@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import UIKit
 
-class CommentItemViewCell: UITableViewCell {
+final class CommentItemViewCell: UITableViewCell {
     private var commentData: Comment?
     
     let contentContainer: UIView = {

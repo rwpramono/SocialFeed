@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import UIKit
 
-class CommentTextFieldView: UIView, UITextFieldDelegate {
+final class CommentTextFieldView: UIView, UITextFieldDelegate {
 
     private let textField = UITextField()
 

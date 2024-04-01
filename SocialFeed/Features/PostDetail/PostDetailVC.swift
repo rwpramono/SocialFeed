@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import UIKit
 
-class PostDetailVC: UIViewController {
+final class PostDetailVC: UIViewController {
     private var viewModel: PostDetailVM
     
     private lazy var contentView = PostDetailContentView()

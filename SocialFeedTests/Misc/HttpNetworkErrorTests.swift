@@ -9,7 +9,7 @@ import XCTest
 
 @testable import SocialFeed
 
-class HttpNetworkErrorTests: XCTestCase {
+final class HttpNetworkErrorTests: XCTestCase {
     
     func test_should_return_network_error_failed() throws {
         let sut = HttpNetworkError.failed

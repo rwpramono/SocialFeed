@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PostsListFactory {
+final class PostsListFactory {
     static func makePostsListVC() -> PostsListVC {
         let vm = PostsListVM(networkService: DependencyContainer.shared.networkService)
         return PostsListVC(viewModel: vm)

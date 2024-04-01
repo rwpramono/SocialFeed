@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PostDetailFactory {
+final class PostDetailFactory {
     static func makePostsDetailVC(postData: Post) -> PostDetailVC {
         let vm = PostDetailVM(
             networkService: DependencyContainer.shared.networkService,
