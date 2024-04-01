@@ -10,8 +10,10 @@ import Combine
 import UIKit
 
 internal class PostItemViewCell: UITableViewCell {
+    private var postId = -1
+    
     let cellTapPublishers = PassthroughSubject<Void, Never>()
-    let likeTapPublishers = PassthroughSubject<Void, Never>()
+    let likeTapPublishers = PassthroughSubject<Int, Never>()
 
     let contentContainer: UIView = {
         let view = UIView()
@@ -148,7 +150,7 @@ internal class PostItemViewCell: UITableViewCell {
     }
     
     @objc private func likeLabelTapped() {
-        likeTapPublishers.send()
+        likeTapPublishers.send(postId)
     }
 
     @objc private func cellTapped() {
@@ -156,6 +158,7 @@ internal class PostItemViewCell: UITableViewCell {
     }
 
     func configure(post: Post) {
+        postId = post.id
         titleLabel.text = post.title
         userNameLabel.text = post.userName
         descriptionLabel.text = post.description

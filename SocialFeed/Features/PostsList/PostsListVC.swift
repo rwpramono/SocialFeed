@@ -70,17 +70,16 @@ extension PostsListVC: UITableViewDataSource {
             .store(in: &cancellables)
         
         cell.likeTapPublishers
-            .sink { [weak self] _ in
-                self?.navigateToDetail()
+            .sink { [weak self] postId in
+                self?.viewModel.likeAPost(postId: postId)
             }
             .store(in: &cancellables)
         return cell
     }
     
     func navigateToDetail() {
-        print("navigateToDetail")
-        //                //                let detailViewController = DetailViewController() // Your detail view controller
-        //                //                self.navigationController?.pushViewController(detailViewController, animated: true)
+        let detailVc = PostDetailFactory.makePostsDetailVC()
+        self.navigationController?.pushViewController(detailVc, animated: true)
     }
 }
 

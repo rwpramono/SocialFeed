@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class PostDetailVC: UIViewController {
-    private var viewModel: PostsListVM
+    private var viewModel: PostDetailVM
     
-    init(viewModel: PostsListVM) {
+    init(viewModel: PostDetailVM) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
