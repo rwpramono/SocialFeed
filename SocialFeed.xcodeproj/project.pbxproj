@@ -43,6 +43,10 @@
 		9AB1E2462BBA31E700F82D2C /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E2452BBA31E700F82D2C /* DependencyContainer.swift */; };
 		9AB1E2482BBA332B00F82D2C /* PostsListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E2472BBA332A00F82D2C /* PostsListFactory.swift */; };
 		9AB1E24A2BBA333900F82D2C /* PostDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E2492BBA333900F82D2C /* PostDetailFactory.swift */; };
+		9AB1E24D2BBA360F00F82D2C /* PostDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E24C2BBA360F00F82D2C /* PostDetailContentView.swift */; };
+		9AB1E24F2BBA431400F82D2C /* CommentItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E24E2BBA431400F82D2C /* CommentItemViewCell.swift */; };
+		9AB1E2512BBA4CA700F82D2C /* CommentTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E2502BBA4CA700F82D2C /* CommentTextFieldView.swift */; };
+		9AB1E2532BBA53B700F82D2C /* PostDetailVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E2522BBA53B700F82D2C /* PostDetailVMTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +107,10 @@
 		9AB1E2452BBA31E700F82D2C /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		9AB1E2472BBA332A00F82D2C /* PostsListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListFactory.swift; sourceTree = "<group>"; };
 		9AB1E2492BBA333900F82D2C /* PostDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailFactory.swift; sourceTree = "<group>"; };
+		9AB1E24C2BBA360F00F82D2C /* PostDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailContentView.swift; sourceTree = "<group>"; };
+		9AB1E24E2BBA431400F82D2C /* CommentItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentItemViewCell.swift; sourceTree = "<group>"; };
+		9AB1E2502BBA4CA700F82D2C /* CommentTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTextFieldView.swift; sourceTree = "<group>"; };
+		9AB1E2522BBA53B700F82D2C /* PostDetailVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailVMTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +302,7 @@
 		9AB1DF442BB7F26B00F82D2C /* PostDetail */ = {
 			isa = PBXGroup;
 			children = (
+				9AB1E24B2BBA360000F82D2C /* View */,
 				9AB1DF452BB7F27D00F82D2C /* PostDetailVC.swift */,
 				9AB1DF472BB7F28500F82D2C /* PostDetailVM.swift */,
 				9AB1E2492BBA333900F82D2C /* PostDetailFactory.swift */,
@@ -364,6 +373,7 @@
 		9AB1E2412BBA1FF500F82D2C /* PostDetail */ = {
 			isa = PBXGroup;
 			children = (
+				9AB1E2522BBA53B700F82D2C /* PostDetailVMTests.swift */,
 			);
 			path = PostDetail;
 			sourceTree = "<group>";
@@ -374,6 +384,16 @@
 				9AB1E2452BBA31E700F82D2C /* DependencyContainer.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		9AB1E24B2BBA360000F82D2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9AB1E24C2BBA360F00F82D2C /* PostDetailContentView.swift */,
+				9AB1E24E2BBA431400F82D2C /* CommentItemViewCell.swift */,
+				9AB1E2502BBA4CA700F82D2C /* CommentTextFieldView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,6 +538,7 @@
 				9AB1DEF52BB69A4A00F82D2C /* CoreDataModel.xcdatamodeld in Sources */,
 				9AB1DF2C2BB7BE8500F82D2C /* CoreDataService.swift in Sources */,
 				9AB1E24A2BBA333900F82D2C /* PostDetailFactory.swift in Sources */,
+				9AB1E2512BBA4CA700F82D2C /* CommentTextFieldView.swift in Sources */,
 				9AB1DEED2BB69A4A00F82D2C /* SceneDelegate.swift in Sources */,
 				9AB1E2462BBA31E700F82D2C /* DependencyContainer.swift in Sources */,
 				9AB1DF2A2BB7905D00F82D2C /* PostsListVM.swift in Sources */,
@@ -526,11 +547,13 @@
 				9AB1DF272BB78F9900F82D2C /* PostsListVC.swift in Sources */,
 				9AB1DF232BB7794F00F82D2C /* LikesResponse.swift in Sources */,
 				9AB1E05E2BB7FB1C00F82D2C /* QuickMockerAPI.swift in Sources */,
+				9AB1E24F2BBA431400F82D2C /* CommentItemViewCell.swift in Sources */,
 				9AB1E05C2BB7F6EE00F82D2C /* HttpMethod.swift in Sources */,
 				9AB1DF382BB7CC9900F82D2C /* APIDataRequest.swift in Sources */,
 				9AB1DF342BB7C6CE00F82D2C /* CoreDataError.swift in Sources */,
 				9AB1E06D2BB901FA00F82D2C /* PostAPICollection.swift in Sources */,
 				9AB1DF462BB7F27D00F82D2C /* PostDetailVC.swift in Sources */,
+				9AB1E24D2BBA360F00F82D2C /* PostDetailContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AB1DF432BB7CE6200F82D2C /* NetworkServiceSpy.swift in Sources */,
+				9AB1E2532BBA53B700F82D2C /* PostDetailVMTests.swift in Sources */,
 				9AB1E0662BB810A800F82D2C /* HttpNetworkErrorTests.swift in Sources */,
 				9AB1E23E2BBA1FDA00F82D2C /* PostsListVMTests.swift in Sources */,
 				9AB1E2432BBA2C6500F82D2C /* PostsListVCTests.swift in Sources */,

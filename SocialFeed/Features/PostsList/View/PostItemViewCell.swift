@@ -9,10 +9,10 @@ import Foundation
 import Combine
 import UIKit
 
-internal class PostItemViewCell: UITableViewCell {
-    private var postId = -1
+class PostItemViewCell: UITableViewCell {
+    private var postData: Post?
     
-    let cellTapPublishers = PassthroughSubject<Void, Never>()
+    let cellTapPublishers = PassthroughSubject<Post, Never>()
     let likeTapPublishers = PassthroughSubject<Int, Never>()
 
     let contentContainer: UIView = {
@@ -63,6 +63,7 @@ internal class PostItemViewCell: UITableViewCell {
         label.backgroundColor = UIColor.systemPink
         label.layer.cornerRadius = 4
         label.layer.masksToBounds = true
+        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -76,7 +77,6 @@ internal class PostItemViewCell: UITableViewCell {
         label.layer.borderColor = UIColor.blue.cgColor
         label.layer.cornerRadius = 4
         label.layer.masksToBounds = true
-        label.isUserInteractionEnabled = true
         return label
     }()
     
@@ -150,15 +150,17 @@ internal class PostItemViewCell: UITableViewCell {
     }
     
     @objc private func likeLabelTapped() {
-        likeTapPublishers.send(postId)
+        guard let postData else { return }
+        likeTapPublishers.send(postData.id)
     }
 
     @objc private func cellTapped() {
-        cellTapPublishers.send()
+        guard let postData else { return }
+        cellTapPublishers.send(postData)
     }
 
     func configure(post: Post) {
-        postId = post.id
+        postData = post
         titleLabel.text = post.title
         userNameLabel.text = post.userName
         descriptionLabel.text = post.description
