@@ -19,12 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         window?.overrideUserInterfaceStyle = .light
         
-        let jsonDecoder = JSONDecoder()
-        let urlSession = URLSession(configuration: .ephemeral)
-        let networkService = URLSessionCoreDataCacheService(session: urlSession, decoder: jsonDecoder)
-
-        let vm = PostsListVM(networkService: networkService)
-        let navigationController = UINavigationController(rootViewController: PostsListVC(viewModel: vm))
+        let vc = PostsListFactory.makePostsListVC()
+        let navigationController = UINavigationController(rootViewController: vc)
         navigationController.navigationBar.prefersLargeTitles = true
 
         self.window?.rootViewController = navigationController
