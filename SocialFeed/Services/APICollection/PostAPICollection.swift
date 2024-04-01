@@ -13,7 +13,7 @@ public struct PostAPICollection {
     }
     
     static func getAllCommentsofPostMock(_ postId: Int) -> APIDataRequest {
-        QuickMockerAPI<PostsResponse>(.get, path: "/posts/\(postId)/comments")
+        QuickMockerAPI<CommentResponse>(.get, path: "/posts/\(postId)/comments")
     }
     
     static func createAPost(_ postData: Post) -> APIDataRequest {

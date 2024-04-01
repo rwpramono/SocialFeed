@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-internal class PostsListContentView: UIView {
-    internal lazy var tableView = UITableView()
+class PostsListContentView: UIView {
+    lazy var tableView = UITableView()
     
     public init() {
         super.init(frame: .zero)

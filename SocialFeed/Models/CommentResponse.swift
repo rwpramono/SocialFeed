@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Comment: Codable {
-    public let id, userID, text: String
+    public var id, userID, text: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -19,7 +19,7 @@ public struct Comment: Codable {
 
 public struct CommentResponse: Codable {
     public let totalComments: Int
-    public let comments: [Comment]
+    public var comments: [Comment]
 
     enum CodingKeys: String, CodingKey {
         case totalComments = "total_comments"

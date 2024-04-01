@@ -7,7 +7,7 @@
 
 import Foundation
 
-internal protocol APIDataRequest {
+protocol APIDataRequest {
     var urlRequest: URLRequest? { get }
     var urlComponent: URLComponents? { get }
 

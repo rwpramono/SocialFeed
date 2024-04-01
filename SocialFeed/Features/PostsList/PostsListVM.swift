@@ -37,8 +37,12 @@ class PostsListVM: ObservableObject {
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { _ in },
-                receiveValue: { [weak self] (resultData: PostsResponse) in
-                    self?.data = resultData.posts
+                receiveValue: { [weak self] (_: PostsResponse) in
+                    // FIXME: Dummy counter to simulate likes due to presistence mock, should be render given API resposnse
+                    guard let self, let indexOfPost = self.data?.firstIndex(where: { $0.id == postId }) else { return }
+                    var postData = self.data?[indexOfPost]
+                    postData?.totalLikes += 1
+                    self.data?[indexOfPost] = postData!
                 }
             ).store(in: &cancellables)
     }

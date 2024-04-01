@@ -12,7 +12,7 @@ public struct PostsResponse: Codable {
 }
 
 public struct Post: Codable {
-    public let id, totalLikes, totalComments: Int
+    public var id, totalLikes, totalComments: Int
     public let title, description, userName: String
 
     enum CodingKeys: String, CodingKey {
