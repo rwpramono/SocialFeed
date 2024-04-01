@@ -13,7 +13,7 @@ public struct QuickMockerAPI<T: Decodable>: APIDataRequest {
     
     init(_ httpMethod: HttpMethod, path: String) {
         // FIXME: Change base url to get from xcconfig
-        guard var urlComponent = URLComponents(string: "https://t3s2gv7kzy.api.quickmocker.com" + path) else {
+        guard var urlComponent = URLComponents(string: "https://une746ouv8.api.quickmocker.com" + path) else {
             self.urlRequest = nil
             self.urlComponent = nil
             return

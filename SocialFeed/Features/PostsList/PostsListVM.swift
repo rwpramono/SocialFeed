@@ -30,7 +30,7 @@ final class PostsListVM: ObservableObject {
                         switch failure.localizedDescription {
                         case "429": self?.errorMessage = "Daily Quota Reached"
                         default:
-                            self?.errorMessage = "Unknown"
+                            self?.errorMessage = failure.localizedDescription
                         }
                     }
                 },
